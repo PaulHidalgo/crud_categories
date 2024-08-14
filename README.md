@@ -57,7 +57,7 @@ Para configurar el proyecto en tu máquina local, sigue estos pasos:
 
 ## Descarga apk
 - Se puede descargar el apk para instalarse en su dispositivo.
-![Apk download](app-debug.apk)
+[Descargar APK](https://github.com/PaulHidalgo/crud_categories/blob/main/app-debug.apk)
 
 ## Dependencias
 
