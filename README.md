@@ -59,7 +59,7 @@ Para configurar el proyecto en tu máquina local, sigue estos pasos:
 - **View Binding**: Simplifica la vinculación de componentes de UI en código.
 
 
-## Ejemplo de Pantalla
+## Vista previa de aplicación
 
 ![Login Example](download.gif)
   
