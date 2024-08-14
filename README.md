@@ -22,6 +22,25 @@ La aplicación está organizada en las siguientes capas:
 - **Capa de Red (API)**: Responsable de las llamadas a la API utilizando Retrofit.
 - **Capa de Inyección de Dependencias**: Proporciona dependencias a los componentes de la aplicación usando Koin.
 
+  ## Descripción de los principales componentes:
+
+- **app/src/main/java/com/phidalgo/crudcategories**: Este es el paquete principal que contiene todas las clases y paquetes relacionados con la funcionalidad del proyecto.
+
+  - **ui**: Contiene las actividades y fragmentos relacionados con la interfaz de usuario (UI).
+    - **auth**: Módulo para manejar la autenticación de usuarios, incluyendo el login y registro.
+    - **main**: Actividad principal de la aplicación.
+    - **pokemon**: Incluye fragmentos y adaptadores relacionados con la visualización de datos de Pokémon.
+  
+  - **model**: Define las clases de datos, como `Category`, `Pokemon`, y las respuestas de la API (`PokemonDetailResponse`, `PokemonResponse`).
+  
+  - **di**: Contiene los módulos de inyección de dependencias, definidos con Koin.
+  
+  - **data/network**: Incluye las clases responsables de la comunicación con APIs externas, organizadas por función (e.g., `AuthRepository`, `PokemonService`).
+  
+  - **util**: Contiene clases utilitarias para manejar tareas comunes, como la gestión de imágenes (`GlideUtils`) y el teclado (`KeyboardUtils`).
+
+- **app/src/main/AndroidManifest.xml**: Archivo de manifiesto que define la estructura y las configuraciones principales de la aplicación.
+
 ## Instalación
 
 Para configurar el proyecto en tu máquina local, sigue estos pasos:
