@@ -51,20 +51,21 @@ Para configurar el proyecto en tu máquina local, sigue estos pasos:
 - **Gestión de Categorías**: Crea nuevas categorías, visualiza las existentes, edítalas o elimínalas.
 - **Búsqueda de Pokémon**: Utiliza la búsqueda integrada para encontrar Pokémon y ver sus detalles.
 
-## Ejemplo de Pantalla
-
-![Login Example](download.gif)
-
-## Descarga apk
-- Se puede descargar el apk para instalarse en su dispositivo.
-[Descargar APK](https://github.com/PaulHidalgo/crud_categories/blob/main/app-debug.apk)
-
 ## Dependencias
 
 - **Koin**: Framework de inyección de dependencias.
 - **Retrofit**: Cliente HTTP para solicitudes de API.
 - **Firebase**: Servicios de autenticación y nube.
 - **View Binding**: Simplifica la vinculación de componentes de UI en código.
+
+
+## Ejemplo de Pantalla
+
+![Login Example](download.gif)
+  
+## Descarga apk
+- Se puede descargar el apk para instalarse en su dispositivo.
+[Descargar APK](https://github.com/PaulHidalgo/crud_categories/blob/main/app-debug.apk)
 
 ## Contribuir
 
