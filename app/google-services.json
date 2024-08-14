@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1075293258765",
+    "project_id": "crud-categoria",
+    "storage_bucket": "crud-categoria.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075293258765:android:8f296427ba4c64a5b74144",
+        "android_client_info": {
+          "package_name": "com.phidalgo.crudcategories"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075293258765-dn6eov00rdlv49d7a8d24rj1uvinp9h5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRzLVFbVgvEx_6lhdUx18wXayM-cbbKuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1075293258765-dn6eov00rdlv49d7a8d24rj1uvinp9h5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
