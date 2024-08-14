@@ -55,6 +55,10 @@ Para configurar el proyecto en tu máquina local, sigue estos pasos:
 
 ![Login Example](download.gif)
 
+## Descarga apk
+- Se puede descargar el apk para instalarse en su dispositivo.
+![Apk download](app-debug.apk)
+
 ## Dependencias
 
 - **Koin**: Framework de inyección de dependencias.
