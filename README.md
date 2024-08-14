@@ -28,7 +28,7 @@ Para configurar el proyecto en tu máquina local, sigue estos pasos:
 
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/tuusuario/CrudCategories.git
+   git clone https://github.com/PaulHidalgo/CrudCategories.git
    cd CrudCategories
    ```
 
