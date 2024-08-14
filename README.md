@@ -39,7 +39,21 @@ La aplicación está organizada en las siguientes capas:
   
   - **util**: Contiene clases utilitarias para manejar tareas comunes, como la gestión de imágenes (`GlideUtils`) y el teclado (`KeyboardUtils`).
 
-- **app/src/main/AndroidManifest.xml**: Archivo de manifiesto que define la estructura y las configuraciones principales de la aplicación.
+  - **app/src/main/AndroidManifest.xml**: Archivo de manifiesto que define la estructura y las configuraciones principales de la aplicación.
+ 
+## Principios SOLID Aplicados
+
+En este proyecto se han aplicado los principios SOLID para asegurar un código más modular y mantenible. A continuación, se destacan algunos ejemplos:
+
+- **Single Responsibility Principle (SRP)**: Cada clase tiene una única responsabilidad. Ejemplo: `AuthRepository` maneja exclusivamente la autenticación, y `PokemonService` se encarga de las operaciones de la API de Pokémon.
+
+- **Open/Closed Principle (OCP)**: Las clases están abiertas para extensión, pero cerradas para modificación. Ejemplo: Los módulos de Koin (`appModule.kt`, `authModule.kt`) permiten la extensión sin modificar el código existente.
+
+- **Liskov Substitution Principle (LSP)**: Las implementaciones concretas pueden sustituir a las abstracciones sin alterar el comportamiento del sistema. Ejemplo: Las interfaces utilizadas en la inyección de dependencias permiten intercambiar implementaciones sin afectar la funcionalidad.
+
+- **Interface Segregation Principle (ISP)**: Las interfaces están divididas en partes más pequeñas y específicas. Ejemplo: Las interfaces para la comunicación con la API están segmentadas para manejar operaciones específicas, evitando sobrecargas innecesarias.
+
+- **Dependency Inversion Principle (DIP)**: Se inyectan dependencias a través de Koin, asegurando que los módulos de alto nivel no dependan de implementaciones de bajo nivel. Ejemplo: Los ViewModels dependen de abstracciones en lugar de implementaciones concretas, facilitando pruebas y escalabilidad.
 
 ## Instalación
 
