@@ -38,14 +38,14 @@ class LoginFragment : Fragment() {
             var isValid = true
 
             if (email.isEmpty()) {
-                binding.includeFormEmailPsw.emailInputLayout.error = "Email is required."
+                binding.includeFormEmailPsw.emailInputLayout.error = getString(R.string.email_required)
                 isValid = false
             } else {
                 binding.includeFormEmailPsw.emailInputLayout.error = null
             }
 
             if (password.isEmpty()) {
-                binding.includeFormEmailPsw.passwordInputLayout.error = "Password is required."
+                binding.includeFormEmailPsw.passwordInputLayout.error = getString(R.string.password_required)
                 isValid = false
             } else {
                 binding.includeFormEmailPsw.passwordInputLayout.error = null

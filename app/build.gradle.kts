@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.google.services)
     id("org.jetbrains.kotlin.kapt")
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -14,8 +15,8 @@ android {
         applicationId = "com.phidalgo.crudcategories"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -80,6 +81,8 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     // Optional: Glide compiler for annotation processing (required if using GlideApp)
     kapt ("com.github.bumptech.glide:compiler:4.15.1")
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -54,9 +54,18 @@ class HomeViewModel(
         categoryRepository.addCategory(category)
         loadCategories()
     }
+    fun updateCategory(category: Category) {
+        categoryRepository.updateCategory(category)
+        loadCategories()
+    }
 
     fun removeCategory(category: Category) {
         categoryRepository.removeCategory(category)
         loadCategories()
+    }
+
+    fun resetCategories() {
+        categoryRepository.removeAllCategory()
+        _categories.value = emptyList()
     }
 }

@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 
 class CategoryRepository(private val apiService: PokemonService) {
 
-    private val categories = mutableListOf<Category>()
+    private var categories = mutableListOf<Category>()
 
     // Función para consumir la API y obtener las categorías de Pokémon usando Retrofit
     suspend fun loadCategoriesFromApi(): List<Category> = withContext(Dispatchers.IO) {
@@ -42,7 +42,22 @@ class CategoryRepository(private val apiService: PokemonService) {
         categories.add(category)
     }
 
+    fun updateCategory(updatedCategory: Category) {
+        // Busca el índice de la categoría que deseas actualizar
+        val categoryIndex = categories.indexOfFirst { it.id == updatedCategory.id }
+
+        // Si se encuentra la categoría, se actualiza
+        if (categoryIndex != -1) {
+            categories[categoryIndex] = updatedCategory
+        }
+
+    }
+
     fun removeCategory(category: Category) {
         categories.remove(category)
+    }
+
+    fun removeAllCategory() {
+        categories = mutableListOf()
     }
 }

@@ -31,7 +31,8 @@ class CategoryAdapter(
 
     inner class CategoryViewHolder(private val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(category: Category) {
-            binding.categoryName.text = category.name
+            val formattedText = category.name.lowercase().replaceFirstChar { it.uppercase() }
+            binding.categoryName.text = formattedText
 
             // Configurar el botón de editar
             binding.buttonEdit.setOnClickListener {

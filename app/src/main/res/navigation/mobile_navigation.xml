@@ -14,12 +14,15 @@
         <action
             android:id="@+id/action_homeFragment_to_pokemonListFragment"
             app:destination="@id/pokemonListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/nav_settings" />
     </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.phidalgo.crudcategories.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:id="@+id/nav_settings"
+        android:name="com.phidalgo.crudcategories.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment

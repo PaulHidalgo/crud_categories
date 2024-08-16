@@ -37,6 +37,7 @@ class PokemonListFragment : Fragment() {
 
         val adapter = PokemonAdapter(pokemonList)
         binding.recyclerViewPokemon.layoutManager = LinearLayoutManager(requireContext())
+        binding.categoryTitle.text = category
         binding.recyclerViewPokemon.adapter = adapter
     }
 

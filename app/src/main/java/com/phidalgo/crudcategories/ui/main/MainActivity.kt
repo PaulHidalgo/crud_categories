@@ -12,11 +12,13 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.common.util.DataUtils
 import com.phidalgo.crudcategories.R
 import com.phidalgo.crudcategories.data.network.auth.AuthRepository
 import com.phidalgo.crudcategories.databinding.ActivityMainBinding
 import com.phidalgo.crudcategories.databinding.NavHeaderMainBinding
 import com.phidalgo.crudcategories.ui.auth.AuthActivity
+import com.phidalgo.crudcategories.util.DataUtil
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
@@ -43,7 +45,13 @@ class MainActivity : AppCompatActivity() {
         val headerView = binding.navView.getHeaderView(0)
         val headerBinding = NavHeaderMainBinding.bind(headerView)
 
-        headerBinding.email.text = authRepository.getCurrentUser()?.email ?: "correo@host.com"
+        headerBinding.email.text = authRepository.getCurrentUser()?.email ?: "mail@host.com"
+        headerBinding.lastConnection.text = getString(R.string.last_connection,
+            authRepository.getCurrentUser()?.metadata?.lastSignInTimestamp?.let {
+                DataUtil.longToDateTime(
+                    it
+                )
+            })
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -52,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         // Define top-level destinations
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_slideshow
+                R.id.nav_home, R.id.nav_settings
             ), drawerLayout
         )
 
@@ -64,6 +72,16 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.nav_logout -> {
                     logout()
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.nav_settings -> {
+                    navController.navigate(R.id.nav_settings)
+                    binding.drawerLayout.closeDrawers() // Close the drawer after selection
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.nav_home -> {
+                    navController.navigate(R.id.nav_home)
+                    binding.drawerLayout.closeDrawers() // Close the drawer after selection
                     return@setNavigationItemSelectedListener true
                 }
                 else -> {

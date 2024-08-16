@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Crud Categorías</string>
+    <string name="navigation_drawer_open">Abrir el menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrar el menú de navegación</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Encabezado de navegación</string>
+    <string name="action_settings">Configuración</string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_gallery">Galería</string>
+    <string name="menu_settings">Configuración</string>
+    <string name="menu_logout">Cerrar sesión</string>
+
+    <string name="last_connection"><b>Última conexión: </b> %s</string>
+    <string name="reset">Restablecer</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="name_category">Nombre de la categoría</string>
+    <string name="add">Agregar</string>
+    <string name="update">Actualizar</string>
+    <string name="delete">Eliminar</string>
+    <string name="cancel">Cancelar</string>
+
+    <!--    Errors messages-->
+    <string name="category_name">El nombre de la categoría es obligatorio.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+    <string name="language_ingles_espanol">Idioma: Inglés/Español</string>
+    <string name="mode_light">Modo: Claro</string>
+    <string name="mode_dark">Modo: Oscuro</string>
+    <string name="language_english">Idioma: Inglés</string>
+    <string name="language_spanish">Idioma: Español</string>
+    <string name="email_hint">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="email_required">Correo electrónico es obligatorio.</string>
+    <string name="password_required">Contraseña es obligatoria.</string>
+</resources>

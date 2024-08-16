@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +20,8 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private var adapter: CategoryAdapter? = null
+    private var categoriesLoaded = false
+    private var categories: List<Category> = emptyList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,13 +43,21 @@ class HomeFragment : Fragment() {
         binding.recyclerViewCategories.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewCategories.adapter = adapter
 
-        viewModel.categories.observe(viewLifecycleOwner) { categories ->
-            binding.progressBar.visibility = View.GONE
+        viewModel.categories.observe(viewLifecycleOwner) { loadedCategories ->
+            categories = loadedCategories
+            categoriesLoaded = true
+            showLoading(false)
             adapter!!.updateCategories(categories)
         }
 
         viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
-            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+            showLoading(isLoading)
+        }
+        if (!categoriesLoaded) {
+            // Cargar las categorías desde la API cuando el fragmento es creado
+            viewModel.loadCategoriesFromApi()
+        } else {
+            adapter!!.updateCategories(categories)
         }
 
         binding.fabAddCategory.setOnClickListener {
@@ -54,16 +65,24 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnRefresh.setOnClickListener {
-            viewModel.loadCategories()
+            viewModel.resetCategories()
+            viewModel.loadCategoriesFromApi()
+            categoriesLoaded = false
         }
 
-        // Cargar las categorías desde la API cuando el fragmento es creado
-        viewModel.loadCategoriesFromApi()
+        setFragmentResultListener("categoryUpdate") { _, _ ->
+            // Reload or refresh the fragment
+            viewModel.loadCategories()
+        }
     }
 
     private fun showEditCategoryDialog(category: Category) {
-        val dialogFragment = CategoryDialogFragment.newInstance(category)
-        dialogFragment.show(childFragmentManager, "EditCategoryDialog")
+        val dialogFragment = CategoryDialogFragment()
+        val args = Bundle()
+        args.putParcelable("category", category)
+        dialogFragment.arguments = args
+        dialogFragment.show(parentFragmentManager, "CategoryDialogFragment")
+
     }
 
     private fun navigateToPokemonList(category: Category) {
@@ -75,5 +94,17 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.includeLoading.blurOverlay.visibility = View.VISIBLE
+            binding.includeLoading.loadingAnimationView.visibility = View.VISIBLE
+            binding.includeLoading.loadingAnimationView.playAnimation()
+        } else {
+            binding.includeLoading.blurOverlay.visibility = View.GONE
+            binding.includeLoading.loadingAnimationView.cancelAnimation()
+            binding.includeLoading.loadingAnimationView.visibility = View.GONE
+        }
     }
 }
